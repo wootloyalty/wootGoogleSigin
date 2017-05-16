@@ -1,4 +1,20 @@
-<h1>Login#index</h1>
-<p>Find me in app/views/login/index.html.erb</p>
-<p>making changes for test.</p>
-<p>Another changes for testing.</p>
+<html>
+<head>
+  <meta name="google-signin-client_id" content="<%= ENV["GOOGLE_SIGNINAPI_KEY"] %>">
+</head>
+<body>
+  <div class="g-signin2" data-onsuccess="onSignIn"></div>
+
+  <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+  <script type="text/javascript">
+  	function onSignIn(googleUser) {
+	  var profile = googleUser.getBasicProfile();
+	  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+	  console.log('Name: ' + profile.getName());
+	  console.log('Image URL: ' + profile.getImageUrl());
+	  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+	}
+  </script>
+</body>
+</html>
+
